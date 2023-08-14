@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import react, { useCallback, useMemo, useState } from "react";
+import classes from "./App.module.css";
+import DemoList from "./DemoList";
+import Button from "./Button";
 
-function App() {
+function App(props) {
+  const [listTitle, setListTitle] = useState("My List");
+
+  const changeTitleHandler = useCallback(() => {
+    setListTitle("New Title");
+  }, []);
+  const listItems = useMemo(() => [5, 3, 1, 10, 9], []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app}>
+      <DemoList title={listTitle} items={listItems}></DemoList>
+      <Button onClick={changeTitleHandler}>Change List Title</Button>
     </div>
   );
 }

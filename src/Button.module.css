@@ -1,0 +1,11 @@
+.button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-left: 250px;
+  padding: 15px;
+  width: 40%;
+  border-radius: 10px;
+  background-color: rgb(32, 189, 116);
+  color: aqua;
+}
